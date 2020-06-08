@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app # necessary for Kustomize identification
+spec:
+  template:
+    spec:
+      containers:
+      - image: nginx:1.17.3
+        name: nginx # necessary for Kustomize identification
