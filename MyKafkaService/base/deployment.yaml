@@ -1,17 +1,22 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: app
+  name: zk-deployment-1
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      id: app
   template:
     metadata:
       labels:
-        id: app
+        app: zk-1
     spec:
+    replicas: 1
       containers:
-      - image: XXX # needs to be overridden by environments
-        name: kafka
+      - name: zk1
+        image: XXX # needs to be overridden by environments
+        ports:
+        - containerPort: 2181
+        env:
+        - name: ZOOKEEPER_ID
+          value: "1"
+        - name: ZOOKEEPER_SERVER_1
+          value: zk1
+        
