@@ -22,3 +22,4 @@ cd ~/MyKafkaServiceRepo/MyKafkaService/
 6.  For a customized Dev Environment Run “kubectl kustomize build overlays/dev” to use all the base resources and merge with the deployment.yaml for test environment
 
 7.  For the Production environment, we customized to use a stable image, increase replica count and also the service type.
+kubectl kustomize build overlays/prod | kubectl apply -f -
