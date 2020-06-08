@@ -1,11 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app
+  name: zk1
 spec:
   replicas: 3
   template:
     spec:
       containers:
-      - image: nginx:stable
-        name: nginx
+      - image: zookeeper:stable
+        name: zk1
+ ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+          command:  
+             - zookeeper-server-start.sh 
+             - /config/zookeeper.properties 
+           image: "wurstmeister/kafka"
+           name: zk1 
+           ports:  
+             -  
+               containerPort: 2181
