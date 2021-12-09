@@ -64,11 +64,9 @@ To obtain the Singularity image
 **Getting the Sample Data and Scripts**
 --------------------------------- 
 
-- A small low resolution dataset was chosen for this workflow example and can be found here: `c48.cold.tar.gz - Google Drive
-<https://drive.google.com/file/d/1GxM21loaQETcYRMEyqyHFRx7UscoRtrF/view>`_
+- A small low resolution dataset was chosen for this workflow example and can be found here: `c48.cold.tar.gz - Google Drive <https://drive.google.com/file/d/1GxM21loaQETcYRMEyqyHFRx7UscoRtrF/view>`_
 
-- The Workflow is found here: `workflow.sh - Google Drive
-<https://drive.google.com/file/d/1dzRRkLha9M6Zq7augmdsgQywpjbVbfDz/view?usp=sharing>`_
+- The Workflow is found here: `workflow.sh - Google Drive <https://drive.google.com/file/d/1dzRRkLha9M6Zq7augmdsgQywpjbVbfDz/view?usp=sharing>`_
 
 --------------------------------- 
 **Running the Workflow**
@@ -98,7 +96,7 @@ To obtain the Singularity image
 
 	3. A successful output should look like this:
 	
-	4. .. image:: xxx.jpg
+	4. .. image:: mrw_output.jpg
 	      :width 40pt
 
 --------------------------------- 
