@@ -56,9 +56,9 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
         1. If resources have been assigned to your user the output will look something like this:
 
-``JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)``
+    ``JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)``
 
-``3500248     orion     bash  esnyder  R    1:22:27      1 Orion-23-03``
+    ``3500248     orion     bash  esnyder  R    1:22:27      1 Orion-23-03``
 
 5. Once resources have been allocated to your user, use the NODELIST to ssh into your node. Note, the node won’t have any connectivity to the internet.
 
