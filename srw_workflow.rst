@@ -3,7 +3,7 @@
 SRW Container Workflow
 =================================
 
-.. **Overview**::
+.. **Overview**:
 
 As part of the Advance User Support Sprint 2 Planning deliverables, a minimalistic containerized version of the Unified Forecasting System (UFS) Short Range Weather (SRW) application was requested. 
 
