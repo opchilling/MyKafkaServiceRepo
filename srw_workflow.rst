@@ -95,34 +95,42 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
 8. In the ush directory, you can modify your EXPT_SUBDIR in the config.sh. This is the experiment directory, where the UFS Weather Model output files will be written to. To modify this directory run this command:
 
-.. code-block:: console
-
-vi config.sh
+    a. ``vi config.sh``
 
 9. After the EXPT_SUBDIR field has been modified in the config.sh file, generate the workflow by doing the following:
 
-.. code-block:: console
+a. ``./generate_FV3LAM_wflow.sh``
 
-./generate_FV3LAM_wflow.sh
-cd /home/builder/ufs/expt_dirs/EXPT_SUBDIR
-NOTE: EXPT_SUBDIR is the field set in the config.sh from the previous step.
-cp /home/builder/ufs/ufs-srweather-app/regional_workflow/ush/wrappers/* .
-export EXPTDIR=$PWD
-source ./var_defns.sh
+b. ``cd /home/builder/ufs/expt_dirs/EXPT_SUBDIR``
+
+    b. NOTE: EXPT_SUBDIR is the field set in the config.sh from the previous step.
+
+c. ``cp /home/builder/ufs/ufs-srweather-app/regional_workflow/ush/wrappers/* .``
+
+d. ``export EXPTDIR=$PWD``
+
+e. ``source ./var_defns.sh``
 
 10. Now you are ready to run the SRW forecast application workflow. The workflow has been broken down into individual scripts. Please run these scripts in order.
 
-.. code-block:: console
+    a. ``./run_get_ics.sh``
 
-./run_get_ics.sh
-./run_get_lbcs.sh
-./run_make_grid.sh
-./run_make_orog.sh
-./run_make_sfc_climo.sh
-./run_make_ics.sh
-./run_make_lbcs.sh
-./run_fcst.sh
-./run_post.sh
+    b. ``./run_get_lbcs.sh``
+
+    c. ``./run_make_grid.sh``
+
+    d. ``./run_make_orog.sh``
+
+    e. ``./run_make_sfc_climo.sh``
+
+    f. ``./run_make_ics.sh``
+
+    g. ``./run_make_lbcs.sh``
+
+    h. ``./run_fcst.sh``
+    
+    i. ``./run_post.sh``
 
 11. Resulting Output
-The final output should look something like this. And the SRW weather model files can be found here:
+
+    a. The final output should look something like this. And the SRW weather model files can be found here:
