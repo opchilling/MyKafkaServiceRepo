@@ -42,19 +42,19 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
     2. ``module load singularity``
 
-    c. ``singularity pull library://dcvelobrew/default/ubuntu-hpc-stack:latest``
+    3. ``singularity pull library://dcvelobrew/default/ubuntu-hpc-stack:latest``
 
-    d. ``singularity build --sandbox ubuntu-hpc-stack-src ./ubuntu-hpc-stack_latest.sif``
+    4. ``singularity build --sandbox ubuntu-hpc-stack-src ./ubuntu-hpc-stack_latest.sif``
 
 3. After the Singularity sandbox is complete, run the following commands to partition resources from Orion so that the SRW forecast application can run. NOTE: this process can take up to two hours to complete! 
 
-    a. ``salloc -N 1 -n 40 -A epic-ps -q batch -t 2:30:00 --partition=orion``
+    1. ``salloc -N 1 -n 40 -A epic-ps -q batch -t 2:30:00 --partition=orion``
 
 4. Run the command below to check if any resources have been assigned to your user.
 
-    a. ``squeue -u $USER``
+    1. ``squeue -u $USER``
 
-        a. If resources have been assigned to your user the output will look something like this:
+        1. If resources have been assigned to your user the output will look something like this:
 
 ``JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)``
 
@@ -62,50 +62,50 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
 5. Once resources have been allocated to your user, use the NODELIST to ssh into your node. Note, the node won’t have any connectivity to the internet.
 
-    a. ``ssh Orion-##-##``
+    1. ``ssh Orion-##-##``
 
-        a. In the example above, the command would be: ssh Orion-23-03
+        1. In the example above, the command would be: ssh Orion-23-03
 
 6. When you are on the Node run the following commands that will setup your environment so that you can run the Singularity container
 
-    a. ``module load singularity``
+    1. ``module load singularity``
 
-    b. ``cd /work/noaa/epic-ps/$USER``
+    2. ``cd /work/noaa/epic-ps/$USER``
 
-    c. ``cp ~/.bashrc .``
+    3. ``cp ~/.bashrc .``
 
-    d. ``singularity shell -H $PWD:$PWD -B /work:/work -w ./ubuntu-hpc-stack-src``
+    4. ``singularity shell -H $PWD:$PWD -B /work:/work -w ./ubuntu-hpc-stack-src``
 
-    e. ``bash``
+    5. ``bash``
 
-    f. ``export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin``
+    6. ``export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin``
 
-    g. ``conda init bash``
+    7. ``conda init bash``
 
-    h. ``exit``
+    8. ``exit``
 
 7. Now that your Singularity environment is setup, let’s configure the setup for the SRW now by running the following commands:
 
-    a. ``Bash``
-    b. ``export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin``
-    c. ``export PATH=$PATH:/home/builder/opt/bin``
-    d. ``conda activate regional_workflow``
-    e. ``cd /home/builder/ufs/ufs-srweather-app/regional_workflow/ush``
+    1. ``Bash``
+    2. ``export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin``
+    3. ``export PATH=$PATH:/home/builder/opt/bin``
+    4. ``conda activate regional_workflow``
+    5. ``cd /home/builder/ufs/ufs-srweather-app/regional_workflow/ush``
 
 
 8. In the ush directory, you can modify your EXPT_SUBDIR in the config.sh. This is the experiment directory, where the UFS Weather Model output files will be written to. To modify this directory run this command:
 
-    a. ``vi config.sh``
+    1. ``vi config.sh``
 
 9. After the EXPT_SUBDIR field has been modified in the config.sh file, generate the workflow by doing the following:
 
-    a. ``./generate_FV3LAM_wflow.sh``
+    1. ``./generate_FV3LAM_wflow.sh``
 
-    b. ``cd /home/builder/ufs/expt_dirs/EXPT_SUBDIR``
+    2. ``cd /home/builder/ufs/expt_dirs/EXPT_SUBDIR``
 
-        b. NOTE: EXPT_SUBDIR is the field set in the config.sh from the previous step.
+        1. NOTE: EXPT_SUBDIR is the field set in the config.sh from the previous step.
 
-    c. ``cp /home/builder/ufs/ufs-srweather-app/regional_workflow/ush/wrappers/* .``
+    3. ``cp /home/builder/ufs/ufs-srweather-app/regional_workflow/ush/wrappers/* .``
 
     d. ``export EXPTDIR=$PWD``
 
