@@ -22,9 +22,9 @@ This document will aid novice users in running the UFS MRW application with the 
 
 There are a couple of packages, data sets, and a script one must have before running the MRW application container. Below is a list of these items:
 
-- Singularity and/or docker installed locally (Singularity is recommended)
+- Singularity and/or docker installed locally (**Singularity is recommended**)
 
-- The MRW singularity or docker image (Singularity is recommended)
+- The MRW singularity or docker image (**Singularity is recommended**)
 
 - The sample test data (c48.cold.tar.gz)
 
@@ -41,9 +41,13 @@ To obtain a Docker image
 --------------------------------- 
 
 1. Obtain the latest MRW docker image from docker hub by doing the following:
+
 	1. ``docker pull dcvelobrew/docker-gnu-openmpi-dev-ufs``
+
 2. Convert the docker image to a singularity container by running the following command:
+
 	1. ``Singularity build epic-mrwapp.img docker://dcvelobrew/docker-gnu-openmpi-dev-ufs``
+
  NOTE: the image is called epic-mrwapp.img
 
 --------------------------------- 
@@ -51,6 +55,7 @@ To obtain the Singularity image
 ---------------------------------
 
 1. Run the command below to get the singularity image:
+
 	1. ``singularity pull library://dcvelobrew/default/mrwufs-src:latest``
 
  NOTE: the image is called mrwufs-src_latest.sif
@@ -59,9 +64,11 @@ To obtain the Singularity image
 **Getting the Sample Data and Scripts**
 --------------------------------- 
 
-- A small low resolution dataset was chosen for this workflow example and can be found here: `c48.cold.tar.gz - Google Drive<https://drive.google.com/file/d/1GxM21loaQETcYRMEyqyHFRx7UscoRtrF/view>`_
+- A small low resolution dataset was chosen for this workflow example and can be found here: `c48.cold.tar.gz - Google Drive
+<https://drive.google.com/file/d/1GxM21loaQETcYRMEyqyHFRx7UscoRtrF/view>`_
 
-- The Workflow is found here: `workflow.sh - Google Drive<https://drive.google.com/file/d/1dzRRkLha9M6Zq7augmdsgQywpjbVbfDz/view?usp=sharing>`_
+- The Workflow is found here: `workflow.sh - Google Drive
+<https://drive.google.com/file/d/1dzRRkLha9M6Zq7augmdsgQywpjbVbfDz/view?usp=sharing>`_
 
 --------------------------------- 
 **Running the Workflow**
@@ -80,6 +87,7 @@ To obtain the Singularity image
 	3. The workflow shell script has the Singularity image name hard coded in it.
 
 2. Once you have verified the conditions above, run the command below:
+
 	1. ``./workflow.sh``
 
 3. Results
@@ -102,6 +110,7 @@ Another one of our Sprint Planning deliverables was to ensure the rt.sh can run 
 Running the regression test c48 is similar to what was done previously and below are the instructions.
 
 1. Procedure
+
 	1. Place the control_48.tar.gz in the same directory as the mrwufs-src_latest.sif or epic-mrwapp.img file 
 
 	2. Untar the control_48 file using this command:
