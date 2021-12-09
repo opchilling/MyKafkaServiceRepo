@@ -97,7 +97,7 @@ To obtain the Singularity image
 	3. A successful output should look like this:
 	
 	4. .. image:: mrw_output.jpg
-		  :width: 800 px
+		  :width: 750 px
 
 --------------------------------- 
 **Regression Testing**
