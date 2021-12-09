@@ -17,9 +17,13 @@ This document will aid novice users in running the UFS SRW application with the 
  **Prerequisites**:
 ---------------------------------
 There are a couple of things one must have before running the SRW application container. Below is a list of these items:
+
 - Access to Orion (this workflow will only work on Orion as this is where the data is hosted)
+
 - The SRW Singularity image
+
 - Workflow instructions (found in this document under the Running the Workflow section)
+
 
 ---------------------------------
  **Running the Workflow**:
