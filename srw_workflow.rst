@@ -99,17 +99,17 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
 9. After the EXPT_SUBDIR field has been modified in the config.sh file, generate the workflow by doing the following:
 
-a. ``./generate_FV3LAM_wflow.sh``
+    a. ``./generate_FV3LAM_wflow.sh``
 
-b. ``cd /home/builder/ufs/expt_dirs/EXPT_SUBDIR``
+    b. ``cd /home/builder/ufs/expt_dirs/EXPT_SUBDIR``
 
-    b. NOTE: EXPT_SUBDIR is the field set in the config.sh from the previous step.
+        b. NOTE: EXPT_SUBDIR is the field set in the config.sh from the previous step.
 
-c. ``cp /home/builder/ufs/ufs-srweather-app/regional_workflow/ush/wrappers/* .``
+    c. ``cp /home/builder/ufs/ufs-srweather-app/regional_workflow/ush/wrappers/* .``
 
-d. ``export EXPTDIR=$PWD``
+    d. ``export EXPTDIR=$PWD``
 
-e. ``source ./var_defns.sh``
+    e. ``source ./var_defns.sh``
 
 10. Now you are ready to run the SRW forecast application workflow. The workflow has been broken down into individual scripts. Please run these scripts in order.
 
@@ -128,7 +128,7 @@ e. ``source ./var_defns.sh``
     g. ``./run_make_lbcs.sh``
 
     h. ``./run_fcst.sh``
-    
+
     i. ``./run_post.sh``
 
 11. Resulting Output
