@@ -32,15 +32,15 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
 1. Log into Orion using the command below using your username:
 
-    a. ``ssh -x username@Orion-login.hpc.msstate.edu``
+    1. ``ssh -x username@Orion-login.hpc.msstate.edu``
 
 2. Run the following commands to download the SRW Singularity Image and convert it to a sandbox.
 
-    a. ``cd /work/noaa/epic-ps/$USER``
+    1. ``cd /work/noaa/epic-ps/$USER``
 
-        a. NOTE: if your $USER doesn’t exist, you may create it by replacing the ‘cd’ with ‘mkdir -p’ in the command above.
+        1. NOTE: if your $USER doesn’t exist, you may create it by replacing the ‘cd’ with ‘mkdir -p’ in the command above.
 
-    b. ``module load singularity``
+    2. ``module load singularity``
 
     c. ``singularity pull library://dcvelobrew/default/ubuntu-hpc-stack:latest``
 
