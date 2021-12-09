@@ -13,16 +13,17 @@ Because the SRW weather application needs to run on a HPC, the end user would ne
 
 This document will aid novice users in running the UFS SRW application with the intent of helping them become more familiar with the UFS and its applications. The document is broken into different sections so that it is easier for a user to understand what is required to run the SRW Container. The container itself is currently a proof of concept and significant work remains to ensure that the process of building containers that are offered to the community are fully in sync with the UFS software in use on the cloud and Tier-1 platforms.
 
- 
-.. **Prerequisites**:
-
+---------------------------------
+ **Prerequisites**:
+---------------------------------
 There are a couple of things one must have before running the SRW application container. Below is a list of these items:
 - Access to Orion (this workflow will only work on Orion as this is where the data is hosted)
 - The SRW Singularity image
 - Workflow instructions (found in this document under the Running the Workflow section)
 
-.. **Running the Workflow**:
-
+---------------------------------
+ **Running the Workflow**:
+---------------------------------
 Once you have the proper access to the Orion HPC, you may run this workflow below. 
 1. Log into Orion using the command below using your username:
 
