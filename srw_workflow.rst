@@ -32,10 +32,9 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
 1. Log into Orion using the command below using your username:
 
-.. code-block:: console
+.. code-block::
 
 ssh -x username@Orion-login.hpc.msstate.edu
-
 
 2. Run the following commands to download the SRW Singularity Image and convert it to a sandbox.
 
