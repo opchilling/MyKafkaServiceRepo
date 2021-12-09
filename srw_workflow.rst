@@ -27,7 +27,8 @@ There are a couple of things one must have before running the SRW application co
 Once you have the proper access to the Orion HPC, you may run this workflow below. 
 1. Log into Orion using the command below using your username:
 
-a. .. code-block:: console
+a.
+ .. code-block:: console
 
 ssh -x username@Orion-login.hpc.msstate.edu
 
