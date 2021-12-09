@@ -32,67 +32,65 @@ Once you have the proper access to the Orion HPC, you may run this workflow belo
 
 1. Log into Orion using the command below using your username:
 
-    1. ``ssh -x username@Orion-login.hpc.msstate.edu``
+    a. ``ssh -x username@Orion-login.hpc.msstate.edu``
 
 2. Run the following commands to download the SRW Singularity Image and convert it to a sandbox.
 
-a. .. code-block:: console
+    a. ``cd /work/noaa/epic-ps/$USER``
 
-cd /work/noaa/epic-ps/$USER
+        a. NOTE: if your $USER doesn’t exist, you may create it by replacing the ‘cd’ with ‘mkdir -p’ in the command above.
 
-i. NOTE: if your $USER doesn’t exist, you may create it by replacing the ‘cd’ with ‘mkdir -p’ in the command above.
+    b. ``module load singularity``
 
-b. .. code-block:: console module load singularity
+    c. ``singularity pull library://dcvelobrew/default/ubuntu-hpc-stack:latest``
 
-module load singularity 
-singularity pull library://dcvelobrew/default/ubuntu-hpc-stack:latest
-singularity build --sandbox ubuntu-hpc-stack-src ./ubuntu-hpc-stack_latest.sif
+    d. ``singularity build --sandbox ubuntu-hpc-stack-src ./ubuntu-hpc-stack_latest.sif``
 
 3. After the Singularity sandbox is complete, run the following commands to partition resources from Orion so that the SRW forecast application can run. NOTE: this process can take up to two hours to complete! 
 
-.. code-block:: console
-
-salloc -N 1 -n 40 -A epic-ps -q batch -t 2:30:00 --partition=orion
+    a. ``salloc -N 1 -n 40 -A epic-ps -q batch -t 2:30:00 --partition=orion``
 
 4. Run the command below to check if any resources have been assigned to your user.
 
-.. code-block:: console
+    a. ``squeue -u $USER``
 
-squeue -u $USER
+        a. If resources have been assigned to your user the output will look something like this:
 
-If resources have been assigned to your user the output will look something like this:
-JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-3500248     orion     bash  esnyder  R    1:22:27      1 Orion-23-03
+``JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)``
+
+``3500248     orion     bash  esnyder  R    1:22:27      1 Orion-23-03``
 
 5. Once resources have been allocated to your user, use the NODELIST to ssh into your node. Note, the node won’t have any connectivity to the internet.
 
-.. code-block:: console
+    a. ``ssh Orion-##-##``
 
-ssh Orion-##-##
+        a. In the example above, the command would be: ssh Orion-23-03
 
-In the example above, the command would be: ssh Orion-23-03
 6. When you are on the Node run the following commands that will setup your environment so that you can run the Singularity container
 
-.. code-block:: console
+    a. ``module load singularity``
 
-module load singularity
-cd /work/noaa/epic-ps/$USER
-cp ~/.bashrc .
-singularity shell -H $PWD:$PWD -B /work:/work -w ./ubuntu-hpc-stack-src
-bash
-export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin
-conda init bash
-exit
+    b. ``cd /work/noaa/epic-ps/$USER``
+
+    c. ``cp ~/.bashrc .``
+
+    d. ``singularity shell -H $PWD:$PWD -B /work:/work -w ./ubuntu-hpc-stack-src``
+
+    e. ``bash``
+
+    f. ``export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin``
+
+    g. ``conda init bash``
+
+    h. ``exit``
 
 7. Now that your Singularity environment is setup, let’s configure the setup for the SRW now by running the following commands:
 
-.. code-block:: console
-
-Bash
-export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin
-export PATH=$PATH:/home/builder/opt/bin
-conda activate regional_workflow
-cd /home/builder/ufs/ufs-srweather-app/regional_workflow/ush
+    a. ``Bash``
+    b. ``export PATH=$PATH:/home/builder/opt/bin:/home/builder/opt/miniconda/bin``
+    c. ``export PATH=$PATH:/home/builder/opt/bin``
+    d. ``conda activate regional_workflow``
+    e. ``cd /home/builder/ufs/ufs-srweather-app/regional_workflow/ush``
 
 
 8. In the ush directory, you can modify your EXPT_SUBDIR in the config.sh. This is the experiment directory, where the UFS Weather Model output files will be written to. To modify this directory run this command:
