@@ -1,5 +1,6 @@
 import random, sys
-import os
+
+
 def myfunc():
     rand = random.random()
     return random.randint(0, 100)
