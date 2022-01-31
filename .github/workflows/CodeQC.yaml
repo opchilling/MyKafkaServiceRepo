@@ -1,9 +1,13 @@
-name: Pylint
- 
+name: Pylint 
 on:
+  push:
+    branches:
+    - master
   pull_request:
     branches:
-    - develop
+    - master
+  workflow_dispatch:
+  
 jobs:
   build:
  
@@ -22,3 +26,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         find . -name '*.py' -exec pylint {} \;
+        
