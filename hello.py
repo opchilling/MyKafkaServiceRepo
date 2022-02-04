@@ -1,9 +1,9 @@
 print("Hello World")
-'''This prints a welcome message.'''
+'''Takes in a number n, returns the square of n'''
 
 
 
 
 
 print("Goodbye World!!!")
-'''This prints a goodbye message.'''
+'''Takes in a number n, returns the square of n'''
